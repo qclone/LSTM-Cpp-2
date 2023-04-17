@@ -215,7 +215,7 @@ initial cell states are set to vectors of 0.
 The following plot shows how each round brings input elements (1 to 4) closer to the target elements.  Each progression along the x axis is another round of LSTM training.  
 ![Single cell test length 4](https://github.com/Meandi-n/Cpp-LSTM/blob/main/single_cell_test_length4.png)
 
-## Test 1: input length = 20
+## Test 2: input length = 20
 ```
 Input x: {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 Output y: {1,2,3,4,5,6,9,3,4,5,4,2,3,1,4,4,4,1,1,1} (target) 
