@@ -3,7 +3,7 @@ The following repository is a simple LSTM network implemented in C++.
 It is incomplete and does not contain a working network as of 17/04/23, but single cell operation has been tested. 
 The LSTM is constructed as follows. 
 
-## LSTM Architecture
+## LSTM Cell Architecture
 
 ![LSTM Architecture](https://github.com/Meandi-n/Cpp-LSTM/blob/main/LSTM_draw.drawio.png)
 
