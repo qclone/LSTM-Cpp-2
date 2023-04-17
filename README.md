@@ -7,6 +7,10 @@ The LSTM is constructed as follows.
 
 ![LSTM Architecture](https://github.com/Meandi-n/Cpp-LSTM/blob/main/LSTM_draw.drawio.png)
 
+## LSTM Network Architecture
+
+![LSTM Network](https://github.com/ryan-n-may/Cpp-LSTM/blob/main/LSTM_network.png)
+
 ## Forward Propagation
 
 Forward propagation is implemented by Cell.h in void forwardPropagation(void). 
