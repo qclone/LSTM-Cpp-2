@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1681709868 source:c:\users\email\onedrive\documents\lstm\lstm\src\cell.cpp
+	"Cell.h"
+
+1681709703 c:\users\email\onedrive\documents\lstm\lstm\include\cell.h
+	"Operations.h"
+	<vector>
+	<iostream>
+	<cmath>
+
+1681709800 source:c:\users\email\onedrive\documents\lstm\lstm\src\main.cpp
+	"main.h"
+	"Cell.h"
+	"Network.h"
+	"single_cell_test.h"
+	<iostream>
+	<math.h>
+
+1681277567 c:\users\email\onedrive\documents\lstm\lstm\include\main.h
+
+1681710197 c:\users\email\onedrive\documents\lstm\lstm\include\operations.h
+	<random>
+	<cmath>
+	<vector>
+	<math.h>
+	<iostream>
+	<fstream>
+
+1681710433 source:c:\users\email\onedrive\documents\lstm\lstm\src\operations.cpp
+	"Operations.h"
+
+1681709711 source:c:\users\email\onedrive\documents\lstm\lstm\src\network.cpp
+	"Network.h"
+
+1681531640 c:\users\email\onedrive\documents\lstm\lstm\include\network.h
+	<iostream>
+	"Cell.h"
+	"LSTMCell.h"
+	"ForwardPropagationCell.h"
+	"BackPropagationCell.h"
+	"Operations.h"
+
+1681306591 source:c:\users\email\onedrive\documents\lstm\lstm\src\forwardpropagationcell.cpp
+	"ForwardPropagationCell.h"
+
+1681305719 c:\users\email\onedrive\documents\lstm\lstm\include\forwardpropagationcell.h
+	"Cell.h"
+	"Operations.h"
+
+1681296549 c:\users\email\onedrive\documents\lstm\lstm\include\lstmcell.h
+	"Cell.h"
+	"BackPropagationCell.h"
+	"ForwardPropagationCell.h"
+
+1681297313 c:\users\email\onedrive\documents\lstm\lstm\include\backpropagationcell.h
+	"Cell.h"
+	"Operations.h"
+
+1681302528 source:c:\users\email\onedrive\documents\lstm\lstm\src\backpropagationcell.cpp
+	"BackPropagationCell.h"
+
+1681710485 source:c:\users\email\onedrive\documents\lstm\lstm\src\single_cell_test.cpp
+	"single_cell_test.h"
+
+1681710795 c:\users\email\onedrive\documents\lstm\lstm\include\single_cell_test.h
+	"Cell.h"
+	<vector>
+	<cmath>
+	<iostream>
+
