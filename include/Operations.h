@@ -38,8 +38,14 @@ public:
     static vector<float> subVectors(vector<float>, vector<float>, int);
     static vector<float> squareVector(vector<float>, int);
 
-    static void save2DVector(vector<vector<float>>, int, int);
+    static void save2DVector(vector<vector<float>>, int, int, string);
+    static void save1DVector(vector<float>, int, string);
 
+    static vector<float> standardiseVector(vector<float>, int);
+    static vector<float> standardiseVector(vector<float>, int, float);
+    static float mean(vector<float>, int);
+    static float stdev(vector<float>, int);
+    static float getMaximum(vector<float>, int);
 };
 
 #endif // OPERATIONS_H

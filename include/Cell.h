@@ -30,24 +30,26 @@ class Cell
         // this initialises the state of the LSTM (ct-1, ht-1, xt).
         void initialiseState(vector<float>, vector<float>, vector<float>);
 
-    /** forward propagation functions **/
-    void forwardPropagation(void);
+        string toString(void);
 
-    /** gradient calculation functions **/
-    void gradientCalculation(void);
+        /** forward propagation functions **/
+        void forwardPropagation(void);
 
-    /** Weight adjustment functions **/
-    void updateWeights(void);
+        /** gradient calculation functions **/
+        void gradientCalculation(void);
 
-    vector<float> getht(void);
-    vector<float> getct(void);
-    void setY(vector<float>);
+        /** Weight adjustment functions **/
+        void updateWeights(void);
 
-    private:
-    /** LSTM properties **/
+        vector<float> getht(void);
+        vector<float> getct(void);
+        void setY(vector<float>);
+
+        /** LSTM properties **/
         int input_length;
         float weight_range;
         vector<float> learning_rate;
+    private:
     /** Cell state and gate vectors **/
         // cell state
         vector<float> ct;
