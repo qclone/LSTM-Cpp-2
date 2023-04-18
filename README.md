@@ -1,4 +1,4 @@
-# C++ LSTM
+# C++ LSTM (Experiment)
 The following repository is a simple LSTM network implemented in C++. 
 This is an ongoing experiment, and not intended as a reliable or complete package. 
 The LSTM is constructed as follows. 
