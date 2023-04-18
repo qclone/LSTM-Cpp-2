@@ -3,6 +3,10 @@ The following repository is a simple LSTM network implemented in C++.
 This is an ongoing experiment, and not intended as a reliable or complete package. 
 The LSTM is constructed as follows. 
 
+## Questions I havent answered:
+* how do I use a LSTM to equalise a Rayleigh channel, how is the LSTM trained and updated?
+* Why is this method superior to LS and MMSE estimation? How can it be superior if it is trained my LS and MMSE?
+
 ## LSTM Cell Architecture
 
 ![LSTM Architecture](https://github.com/Meandi-n/Cpp-LSTM/blob/main/LSTM_draw.drawio.png)
