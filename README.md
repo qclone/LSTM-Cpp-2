@@ -1,6 +1,6 @@
 # C++ LSTM
 The following repository is a simple LSTM network implemented in C++. 
-It is incomplete and does not contain a working network as of 17/04/23, but single cell operation has been tested. 
+This is an ongoing experiment, and not intended as a reliable or complete package. 
 The LSTM is constructed as follows. 
 
 ## LSTM Cell Architecture
@@ -228,4 +228,68 @@ initial cell states are set to vectors of 0.
 The following plot shows how each round brings input elements (1 to 20) closer to the target elements.  Each progression along the x axis is another round of LSTM training.  
 ![Single cell test length 20](https://github.com/Meandi-n/Cpp-LSTM/blob/main/single_cell_test_length_20.png)
 
+# LSTM Network Testing
+
+an LSTM network can be trained to a Rayleigh channel of length 64, using 32 LSTM cells of input dimension 2. 
+
+```c++
+int _input_length = 2;
+float _weight_range = 1;
+float _learning_rate = 1;
+int _network_size = 32;
+Network* net;
+```
+The LS channel is given below.  The LSTM is trained by setting initial cell state to {0,0}, and expecting a row of LS_EST as the output of each LSTM cell.  Weights and biases are configured such that LSTM output matches LS_EST (LS channel estimation). 
+```c++
+ vector<float> LS_EST = {-1.51120275010916000,	-2.04978774403636000,
+                         -1.86959755782467000,  -1.28733708601674000,
+                         -0.61971122315524300,	-0.14377093011389100,
+                          0.02204856690934480,	-0.13848543119575400,
+                         -0.39141124986415700,  -0.49386791995177700,
+                         -0.41759166767354000,	-0.21386033162764900,
+                         -0.03752100458637800,	-0.02388244855140030,
+                         -0.12653084826790100,  -0.25309853150552400,
+                         -0.30912497538824300,	-0.23405155789833900,
+                         -0.10502011109699700,	-0.01996145279267770,
+                         -0.02226188970404040,  -0.11725570681897900,
+                         -0.21261361329212200,	-0.21794283471779400,
+                         -0.14826023828236900,	-0.05017635940264710,
+                         0.008733235174919100,  -0.02211203113601590,
+                         -0.10434774295170800,	-0.17853723838995900,
+                         -0.18989986154485700,	-0.10970779864006500,
+                         -0.00878859844129037,  +0.03270392235059590,
+                         -0.00313376216390587,	-0.10040833092472600,
+                         -0.17028936583489300,	-0.13543326525558300,
+                         -0.03738079041746790,  +0.05377053278093730,
+                         +0.07258048263924660,	-0.01476863074222770,
+                         -0.12026167425850800,	-0.14697029531602000,
+                         -0.08414608637146880,  +0.04104308287672750,
+                         +0.13594417881357900,	+0.11900784845341700,
+                         +0.01858462524442080,	-0.09979946704941600,
+                         -0.13181632983469800,  -0.00657875501899657,
+                         +0.17423482865685000,	+0.27988981506781900,
+                         +0.23599252538542600,	+0.03213783127723470,
+                         -0.14246612090153200,  -0.09543037611829610,
+                         +0.17874398068126800,	+0.60059504067689400,
+                         +0.93770763952819200,	+0.91942829901473900,
+                         +0.27510354091611400,  -1.26592011298811000 };
+```
+```c++
+int ROUNDS = 2000;
+network_test::net->trainNetwork(network_test::ROUNDS);
+```
+The Network is then tested
+```c++
+/** Test network **/
+network_test::net->testNetwork({0,0});
+Operations::save2DVector(network_test::net->predictions, 32, 2, "testing_VECTOR.csv");
+````
+The LS channel then changes slightly, in order for the LSTM to model the network, it must be retrained.  However, due to the changes of the LS network being small, only 50 training rounds are required, rather than 2000. 
+```c++
+network_test::net->trainNetwork(50);
+Operations::save2DVector(network_test::net->predictions, 32, 2, "predictions2_VECTOR.csv");
+```
+## MatLab plot showing training of original, and adjusted LS estimation
+
+![LSTM plot](https://github.com/ryan-n-may/Cpp-LSTM/blob/main/LSTM_network_plot.png)
 
