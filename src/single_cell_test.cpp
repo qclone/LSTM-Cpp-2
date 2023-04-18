@@ -36,5 +36,5 @@ void single_cell_test::test(void)
 
     Operations::display2DVector(ct_temporal, single_cell_test::ROUNDS, single_cell_test::_input_length);
 
-    Operations::save2DVector(ct_temporal, single_cell_test::ROUNDS, single_cell_test::_input_length);
+    Operations::save2DVector(ct_temporal, single_cell_test::ROUNDS, single_cell_test::_input_length, "ct_temporal_VECTOR.csv");
 }

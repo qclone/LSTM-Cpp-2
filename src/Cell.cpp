@@ -112,11 +112,10 @@ void Cell::forwardPropagation(void)
 /** gradient calculation functions **/
 void Cell::gradientCalculation(void)
 {
-    //cout << "Calculating errors of the cell" << endl;
     // Error of cell
     Cell::dE = Operations::subVectors(Cell::yt, Cell::ct, Cell::input_length);
-    cout << "dE = ";
-    Operations::display1DVector(Cell::dE, Cell::input_length);
+    //cout << "dE = ";
+    //Operations::display1DVector(Cell::dE, Cell::input_length);
 
     //cout << "Calculating gradient with respect to gates" << endl;
     /*Gradient with respect to gates*/
@@ -205,6 +204,12 @@ vector<float> Cell::getht(void)
 vector<float> Cell::getct(void)
 {
     return Cell::ct;
+}
+
+string Cell::toString(void)
+{
+    string description = "Cell: " + to_string(Cell::id_number);
+    return description;
 }
 
 

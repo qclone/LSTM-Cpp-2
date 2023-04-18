@@ -182,14 +182,82 @@ vector<float> Operations::squareVector(vector<float> vec, int d1)
     return vec2;
 }
 
-void Operations::save2DVector(vector<vector<float>> vec, int d1, int d2)
+void Operations::save2DVector(vector<vector<float>> vec, int d1, int d2, string file)
 {
-    ofstream File("single_cell_test.csv");
+    ofstream File(file);
     for(int i = 0; i < d1; i++)
     {
         for(int j = 0; j < d2; j++)
-            File << vec.at(i).at(j) << ", ";
+        {
+            File << vec.at(i).at(j);
+            if(j != d2-1)
+                File << ",";
+        }
         File << "\n";
     }
     File.close();
+}
+
+
+void Operations::save1DVector(vector<float> vec, int d1, string file)
+{
+    ofstream File(file);
+    for(int i = 0; i < d1; i++)
+    {
+        File << vec.at(i) << ", ";
+    }
+    File << "\n";
+    File.close();
+}
+
+vector<float> Operations::standardiseVector(vector<float> vec, int d1)
+{
+    /*
+    float mean = Operations::mean(vec, d1);
+    float stdeviation = Operations::stdev(vec, d1);
+    for(int i = 0; i < d1; i++)
+        vec.at(i) = (vec.at(i) - mean) / stdeviation;
+    */
+    float maximum = Operations::getMaximum(vec, d1);
+    for(int i = 0; i < d1; i++)
+        vec.at(i) = (vec.at(i)) / maximum;
+    cout << "Maximum " << maximum << endl;
+    return vec;
+}
+
+float Operations::getMaximum(vector<float> vec, int d1)
+{
+    float maximum = vec.at(0);
+    for(int i = 0; i < d1; i++)
+        if(abs(vec.at(i)) > maximum)
+            maximum = abs(vec.at(i));
+    return maximum;
+}
+
+vector<float> Operations::standardiseVector(vector<float> vec, int d1, float maximum)
+{
+    for(int i = 0; i < d1; i++)
+        vec.at(i) = (vec.at(i)) / maximum;
+    return vec;
+}
+
+
+float Operations::mean(vector<float> vec, int d1)
+{
+    float sum = 0;
+    for(int i = 0; i < d1; i++)
+        sum += vec.at(i);
+    return sum/d1;
+}
+
+float Operations::stdev(vector<float> vec, int d1)
+{
+    float mean  = Operations::mean(vec, d1);
+    float deviation = 0;
+    for(int i = 0; i < d1; i++)
+        deviation += ((vec.at(i) - mean) * (vec.at(i) - mean));
+
+    deviation /= (d1-1);
+    deviation = sqrt(deviation);
+    return deviation;
 }
